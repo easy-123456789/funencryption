@@ -47,6 +47,7 @@ button {
 <br>
 
 <button onclick="encodeText()">Encode</button>
+<button onclick="run()">Run Image</button>
 <button onclick="decodeImage()">Decode</button>
 <button onclick="downloadImage()">Download PNG</button>
 
@@ -198,8 +199,21 @@ function decodeImage() {
 
     document.getElementById("output").textContent =
         text;
+    return text;
 }
+function run(){
+    
+  // Open a blank page
+  let newWindow = window.open("about:blank", "_blank");
 
+  // Write HTML into it
+  newWindow.document.write(decodeImage());
+
+  // Close the document stream so it renders
+  newWindow.document.close();
+
+
+}
 // Download image
 function downloadImage() {
 
